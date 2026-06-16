@@ -419,6 +419,42 @@
             <p>Website, Ecommerce, Inventory Software, ERP, Custom Solution ও others 35+ Software এর live demo দেখুন।</p>
         </div>
 
+        <style>
+          .search-box{
+              margin:25px 0;
+              text-align:center;
+          }
+
+          .search-box input{
+              width:100%;
+              max-width:500px;
+              padding:14px 20px;
+              border:2px solid #0d6efd;
+              border-radius:50px;
+              font-size:16px;
+              outline:none;
+              transition:.3s;
+          }
+
+          .search-box input:focus{
+              box-shadow:0 0 15px rgba(13,110,253,.25);
+          }
+
+          .no-result{
+              text-align:center;
+              padding:30px;
+              display:none;
+              color:#888;
+              font-size:18px;
+          }
+        </style>
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search Software (School, Restaurant, POS, ERP...)">
+        </div>
+
 
         <div class="demo-list">
 
@@ -437,6 +473,8 @@
             <a href="https://salestracker.technoparkbd.com/admin" target="_blank" class="live-btn">Live Demo →</a>
             
         </div>
+
+        
 
         <div class="demo-row">
             <div class="demo-icon">🏪</div>
@@ -593,27 +631,27 @@
             <div class="demo-icon">🏨</div>
             <div class="demo-content">
                 <h4>Hotel Management Software</h4>
-                <p>Booking, Room, Guest & Billing Management</p>
+                <p>Booking, Room, Guest & Billing Management UI <a href="https://script.viserlab.com/twixhotel/luxury/" target="_blank" class="live-btn">demo</a></p>
             </div>
-            <a href="#" target="_blank" class="live-btn">Live Demo →</a>
+            <a href="https://script.viserlab.com/twixhotel/admin" target="_blank" class="live-btn">Live Demo →</a>
         </div>
 
         <div class="demo-row">
             <div class="demo-icon">✈️</div>
             <div class="demo-content">
                 <h4>Travel Agency Software</h4>
-                <p>Tour Package, Visa & Booking Management</p>
+                <p>Tour Package, Visa & Booking Management UI <a href="https://script.viserlab.com/visertrip/" target="_blank" class="live-btn">demo</a></p>
             </div>
-            <a href="#" target="_blank" class="live-btn">Live Demo →</a>
+            <a href="https://script.viserlab.com/visertrip/admin" target="_blank" class="live-btn">Live Demo →</a>
         </div>
 
         <div class="demo-row">
             <div class="demo-icon">💊</div>
             <div class="demo-content">
                 <h4>Pharmacy Management Software</h4>
-                <p>Medicine, Stock, Sales & Expiry Tracking</p>
+                <p>Medicine, Stock, Sales & Expiry Tracking, UI <a href="https://acnoopharmacy.acnoo.xyz/" target="_blank" class="live-btn">demo</a></p>
             </div>
-            <a href="#" target="_blank" class="live-btn">Live Demo →</a>
+            <a href="https://acnoopharmacy.acnoo.xyz/login" target="_blank" class="live-btn">Live Demo →</a>
         </div>
 
         <div class="demo-row">
@@ -845,6 +883,9 @@
                 Live Demo →
             </a>
         </div>
+        <div class="no-result" id="noResult">
+          ❌ No software found.
+        </div>
 
         </div>
 
@@ -856,8 +897,8 @@
       <div class="cta">
         <h2>আপনার Business Online করতে চান?</h2>
         <p>Website, Ecommerce বা Software solution এর জন্য আজই কথা বলুন।</p>
-        <a href="https://wa.me/8801552344239" class="btn btn-primary">WhatsApp করুন</a>
-        <a href="tel:01916304877" class="btn btn-secondary">Call Now</a>
+        <a href="https://wa.me/8801805030076" class="btn btn-primary">WhatsApp করুন</a>
+        <a href="tel:8801805030076" class="btn btn-secondary">Call Now</a>
       </div>
     </div>
   </section>
@@ -938,6 +979,34 @@
 </style>
 
 <button id="topBtn">↑</button>
+
+        <script>
+          const searchInput = document.getElementById("searchInput");
+          const rows = document.querySelectorAll(".demo-row");
+          const noResult = document.getElementById("noResult");
+
+          searchInput.addEventListener("keyup", function(){
+
+              let value = this.value.toLowerCase().trim();
+              let found = false;
+
+              rows.forEach(function(row){
+
+                  let text = row.innerText.toLowerCase();
+
+                  if(text.indexOf(value) > -1){
+                      row.style.display = "flex";
+                      found = true;
+                  }else{
+                      row.style.display = "none";
+                  }
+
+              });
+
+              noResult.style.display = found ? "none" : "block";
+
+          });
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
